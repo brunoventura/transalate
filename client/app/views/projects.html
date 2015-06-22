@@ -1,0 +1,24 @@
+<h3>Projects 
+	<span class="pull-right">
+		<a href="/projects/new" class="btn btn-primary btn-large">New Project</a>
+	</span>
+</h3>
+
+<table class="table table-hover table-striped">
+	<thead>
+		<tr>
+			<th>Project</th>
+			<th>Lenguages</th>
+			<th>Num. Sentences</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="project in projects" ng-click="selectProject($index)">
+			<td>{{project.name}}</td>
+			<td>{{project.lang}}</td>
+			<td>34</td>
+			<td><span><i class="glyphicon glyphicon-chevron-right"></i></span></td>
+		</tr>
+	</tbody>
+</table>
