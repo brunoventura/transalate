@@ -8,16 +8,16 @@
 	<thead>
 		<tr>
 			<th>Project</th>
-			<th>Lenguages</th>
-			<th>Num. Sentences</th>
+			<th class="text-center">Lenguages</th>
+			<th class="text-center">Num. Sentences</th>
 			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="project in projects" ng-click="selectProject($index)">
 			<td>{{project.name}}</td>
-			<td>{{project.lang}}</td>
-			<td>34</td>
+			<td class="text-center">{{project.lang | lang}}</td>
+			<td class="text-center">34</td>
 			<td><span><i class="glyphicon glyphicon-chevron-right"></i></span></td>
 		</tr>
 	</tbody>

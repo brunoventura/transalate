@@ -8,7 +8,6 @@
 	function ControllerFn ($scope, $location, all) {
 		$scope.projects = all.data.apps;
 		//Public API
-		console.log(all.data.apps);
 		$scope.selectProject = selectProject;
 
 		function selectProject (id) {
