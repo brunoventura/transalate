@@ -1,13 +1,11 @@
 (function () {
-
 	angular.module('app')
 	
-	.controller('DashboardCtrl', ControllerFn)
+	.controller('MainCtrl', ControllerFn)
 
 	ControllerFn.$injector = ['$scope', 'all'];
 	
 	function ControllerFn ($scope) {
-		$scope.test = 1
 	}
 
 }());

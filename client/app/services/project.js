@@ -8,7 +8,8 @@
 		var serviceBase = API_BASE + 'project/';
 
 		var service = {
-			all: all
+			all: all,
+			get: get
 		};
 
 		return service;
@@ -18,6 +19,7 @@
 		};
 
 		function get(id) {
+			console.log(id);
 			return $http.get(serviceBase+id).success(_getComplete).error(_getFailed);
 		};
 

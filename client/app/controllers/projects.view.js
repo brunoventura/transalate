@@ -3,10 +3,10 @@
 	angular.module('app')
 		.controller('ProjectsViewCtrl', ControllerFn);
 
-	ControllerFn.$injector = ['$scope'];
+	ControllerFn.$injector = ['$scope', 'project'];
 	
-	function ControllerFn ($scope, ProjectService) {
-		console.log('here');
+	function ControllerFn ($scope, project) {
+		$scope.project = project.data;
 
 	}
 

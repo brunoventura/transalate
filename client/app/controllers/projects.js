@@ -3,15 +3,16 @@
 	angular.module('app')
 		.controller('ProjectsCtrl', ControllerFn)
 
-	ControllerFn.$injector = ['$scope', '$state'];
+	ControllerFn.$injector = ['$scope', '$location', 'all'];
 	
-	function ControllerFn ($scope, $state, all) {
+	function ControllerFn ($scope, $location, all) {
 		$scope.projects = all.data.apps;
 		//Public API
+		console.log(all.data.apps);
 		$scope.selectProject = selectProject;
 
 		function selectProject (id) {
-			$state.go('project.view', {'id': id});
+			$location.url('projects/'+id);
 		}
 	}
 
