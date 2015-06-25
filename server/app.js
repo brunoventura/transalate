@@ -3,6 +3,7 @@
 var express = require("express");
 var path = require('path');
 var project = require('./controllers/project');
+var lang = require('./controllers/lang');
 var http = require('http');
 
 
@@ -12,12 +13,11 @@ var server = http.createServer(app);
 var port = 9000;
 var root = path.normalize(__dirname + '/../')
 
-console.log(root);
-
 app.set('appPath', 'client');
 app.use(express.static(path.join(root, '.tmp')));
 app.use(express.static(path.join(root, 'client')));
 
+project.use('/:id/lang', lang);
 app.use('/api/project', project);
 
 app.all('*', function(req, res) {

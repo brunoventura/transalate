@@ -22,8 +22,12 @@
 			templateUrl: 'app/views/projects.view.html',
 			resolve: {
 				ProjectService: "ProjectService",
+				LangService: "LangService",
 				project: function(ProjectService, $route) {
 					return ProjectService.get($route.current.params.id);
+				},
+				lang: function(LangService, $route) {
+					return LangService.all($route.current.params.id);
 				}
 			}
 		}).otherwise({

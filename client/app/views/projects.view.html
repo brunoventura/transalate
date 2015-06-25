@@ -1,1 +1,36 @@
-<h3>{{project.name}}</h3>
+<h3>{{project.name}}
+	<span class="pull-right">
+		<a ng-click="newSentence = true" class="btn btn-primary btn-large">New Sentence</a>
+	</span>
+</h3>
+
+<form name="form">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>Sentence</th>
+				<th ng-repeat="lang in project.lang">{{lang}}</th>
+			</tr>
+		</thead>
+		<tr ng-if="newSentence" class="form-horizontal">
+			<td>
+				<input ng-required="true" name="name" class="form-control" type="text" ng-model="sentence.name">
+			</td>
+			<td class="form-group" ng-repeat="lang in project.lang">
+				<input name="lang_{{lang}}" ng-if="!$last" class="form-control" type="text" ng-model="sentence[lang]">
+				
+				<div class="col-sm-9" ng-if="$last">
+					<input name="lang_{{lang}}" class="form-control" type="text" ng-model="sentence[lang]">
+				</div>
+				<div class="col-sm-3" ng-if="$last">
+					<a ng-click="save()" class="btn btn-primary btn-large"><i class="glyphicon glyphicon-ok"></i></a>
+					<a ng-click="close()" class="btn btn-primary btn-large"><i class="glyphicon glyphicon-remove"></i></a>
+				</div>
+			</td>
+		</tr>
+		<tr ng-repeat="(key, langs) in project.tree">
+			<td>{{key}}</td>
+			<td ng-repeat="(lang, value) in langs">{{value}}</td>
+		</tr>
+	</table>
+</form>
